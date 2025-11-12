@@ -1,11 +1,11 @@
 # 概要
-このリポジトリは参照文と生成文を比較してbertscoreで評価するプログラムです。
+このリポジトリは参照文と生成文を比較してBERTScoreで評価するプログラムです。
 
 ## 使用環境
 本プロジェクトは **Google Colab** 上での実行を想定しています。
 
 ## データカラムの説明
-  このようなデータセットを用意することによりbertscoreで評価することが出来ます。（サンプルのデータ```text_list.csv```を用意しています）
+  このようなデータセットを用意することによりBERTScoreで評価することが出来ます。（サンプルのデータ```text_list.csv```を用意しています）
 
   今回は```reference```の参考文をもとにGPTモデルが生成した回答```gpt_answer```が出力した結果と、独自チャットボットが生成した回答```bot_answer```をそれぞれ
   評価する。（適合率、再現率、F値）
@@ -18,5 +18,13 @@
 | bot_answer                    | 独自チャットボットが生成した回答 | 「本日は晴れる可能性が高いです。」 |
 
 
+### BERTScore の計算について
+
+本プロジェクトでは、`bert-score` ライブラリを用いて日本語テキストの類似度を評価しています。  
+評価には以下のモデルを使用しています：
+
+- 使用モデル: [`bert-base-multilingual-cased`](https://huggingface.co/bert-base-multilingual-cased)
+- BERTScore は BERT 系の事前学習モデルを用いて文同士の意味的類似度を算出する手法
+
 ## 結果・出力
-Notebookを実行すると、各bertscoreの結果が```output.csv```が保存されます。
+Notebookを実行すると、各BERTScoreの結果が```output.csv```が保存されます。
